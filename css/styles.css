@@ -1,0 +1,32 @@
+body {
+    background-color: #f5f5f5;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h2 {
+    text-align: center;
+}
+
+.map-menu {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+}
+
+#map {
+    height: 50vh;
+    width: 80%;
+    
+}
+
+.decile-buttons {
+    margin: 0 50px 0 50px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.rad-button {
+    margin-bottom: 10px;
+}

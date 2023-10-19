@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/main.js" defer></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <title>Document</title>
+</head>
+<body>
+    <h2>Interactive map that shows the percentage of population belonging to each income decile</h2>
+
+    <div class="map-menu">
+        <div class="decile-buttons">
+            <h3>Choose decile:</h3>
+            <div class="rad-button">
+                <label for="decile-1">1:</label>
+                <input type="radio" name="radio" id="decile-1" checked="true">
+            </div>
+            <div class="rad-button">
+                <label for="decile-2">2:</label>
+                <input type="radio" name="radio" id="decile-2" checked="false">
+            </div>
+            <div class="rad-button">
+                <label for="decile-3">3:</label>
+                <input type="radio" name="radio" id="decile-3" checked="false">
+            </div>
+            <div class="rad-button">
+                <label for="decile-4">4:</label>
+                <input type="radio" name="radio" id="decile-4" checked="false">
+            </div>
+            <div class="rad-button">
+                <label for="decile-5">5:</label>
+                <input type="radio" name="radio" id="decile-5" checked="false">
+            </div>
+            <div class="rad-button">
+                <label for="decile-6">6:</label>
+                <input type="radio" name="radio" id="decile-6" checked="false">
+            </div>
+            <div class="rad-button">
+                <label for="decile-7">7:</label>
+                <input type="radio" name="radio" id="decile-7" checked="false">
+            </div>
+            <div class="rad-button">
+                <label for="decile-8">8:</label>
+                <input type="radio" name="radio" id="decile-8" checked="false">
+            </div>
+            <div class="rad-button">
+                <label for="decile-9">9:</label>
+                <input type="radio" name="radio" id="decile-9" checked="false">
+            </div>
+            <div class="rad-button">
+                <label for="decile-10">10:</label>
+                <input type="radio" name="radio" id="decile-10" checked="false">
+            </div>
+            <button id="update-map">Update</button>
+        </div>
+    
+        <div id="map"></div>
+    </div>
+</body>
+</html>
