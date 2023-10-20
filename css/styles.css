@@ -14,7 +14,7 @@ h2 {
 }
 
 #map {
-    height: 50vh;
+    height: 60vh;
     width: 80%;
     
 }
@@ -29,4 +29,9 @@ h2 {
 
 .rad-button {
     margin-bottom: 10px;
+}
+
+#municipality-form {
+    margin-left: 40%;
+    margin-top: 50px;
 }
