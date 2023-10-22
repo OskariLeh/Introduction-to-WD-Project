@@ -1,6 +1,7 @@
 const textArea = document.getElementById("input-area")
 const submitButton = document.getElementById("submit-data")
 
+
 let chartQuery = {
     "query": [
       {
@@ -73,7 +74,7 @@ let chartQuery = {
 
 submitButton.addEventListener("click", async () => {
     event.preventDefault()
-    areaCodes = await getAreaCodes()
+    let areaCodes = await getAreaCodes()
     let areaCode = ""
     for (let i = 0; i < areaCodes.length; i++) {
         if (areaCodes[i].name.toLowerCase() == textArea.value.toLowerCase()) {
@@ -82,11 +83,25 @@ submitButton.addEventListener("click", async () => {
         }
     }
 
-    console.log(areaCode)
     chartQuery.query[2].selection.values[0] = areaCode
     
     makeChart()
 })
+
+const layerClicked = async (e) => {
+  let areaCodes = await getAreaCodes()
+  let areaCode = ""
+  for (let i = 0; i < areaCodes.length; i++) {
+      if (areaCodes[i].name.toLowerCase() == e.target.feature.properties.name.toLowerCase()) {
+          areaCode = areaCodes[i].areaCode
+          break
+      }
+  }
+  textArea.value = e.target.feature.properties.name
+  chartQuery.query[2].selection.values[0] = areaCode
+  
+  makeChart()
+}
 
 const getChartData = async () => {
     const url = "https://pxdata.stat.fi:443/PxWeb/api/v1/en/StatFin/tjt/statfin_tjt_pxt_12hh.px"
@@ -109,7 +124,6 @@ const getChartData = async () => {
 const makeChart = async () => {
     const data = await getChartData()
   
-    console.log(data)
     const population = data.value
     const years = Object.values(data.dimension.Vuosi.category.label)
 

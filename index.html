@@ -9,6 +9,7 @@
     <script src="https://unpkg.com/frappe-charts@latest"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src='https://unpkg.com/leaflet-image@latest/leaflet-image.js'></script>
     <title>Document</title>
 </head>
 <body>
@@ -57,11 +58,16 @@
                 <label for="decile-10">10:</label>
                 <input type="radio" name="radio" id="decile-10" checked="true">
             </div>
-            <button id="update-map">Update</button>
+            <div id="buttons">
+                <button id="update-map">Update</button>
+                <button id="download-button">download</button>
+            </div> 
         </div>
     
         <div id="map"></div>
     </div>
+
+    <h3>Development of the percentage of people in the decile from 1995-2021</h3>
 
     <form action="" method="get" id="municipality-form">
         <label for="input-area">Enter municipality</label>

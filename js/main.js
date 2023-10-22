@@ -357,6 +357,7 @@ let query = {
 const radioInput = document.querySelectorAll("input")
 radioInput[9].checked = true
 const updateButton = document.getElementById("update-map")
+const downloadButton = document.getElementById("download-button")
 
 
 // Clicking the button changes the Post query and initilizes the map again with new data
@@ -374,6 +375,23 @@ updateButton.addEventListener("click", () => {
   getData()
   
 })
+
+downloadButton.addEventListener("click", () => {
+  leafletImage(map, function(err, canvas) {
+    // now you have canvas
+    // example thing to do with that canvas:
+    let img = document.createElement('a');
+    let dimensions = map.getSize();
+    img.x = dimensions.x
+    img.y = dimensions
+
+    img.href= canvas.toDataURL();
+    img.download = "map.png"
+    img.click()
+    img.remove()
+  })
+})
+
 
 // Get data from API, init map
 const getData = async () => {
@@ -412,9 +430,13 @@ const initMap = (data) => {
   if (map != undefined) {
     map.remove()
     map = undefined
-    map = L.map("map")
+    map = L.map("map", {
+      preferCanvas: true
+    })
   } else {
-    map = L.map("map")
+    map = L.map("map", {
+      preferCanvas: true
+    })
   }
 
 
@@ -435,12 +457,15 @@ const initMap = (data) => {
 }
 
 const getFeature = (feature, layer) =>{
-  layer.bindTooltip(feature.properties.name)
-  layer.bindPopup(
+  layer.bindTooltip(
     `<ul>
-        <li>Percentage of people belonging to decile ${currentDecile}: ${feature.properties.percentageOfGivenDecile}</li>
-    </ul>`
-) 
+        <h3>${feature.properties.name}</h3>
+        <p>Percentage of people belonging to decile ${currentDecile}: ${feature.properties.percentageOfGivenDecile}%</p>
+        <p>Click to see development</p>
+    </ul>`)
+  layer.on({
+    click: layerClicked
+  })
 }
 
 // Set color of municipalities, smaller percentage green higher red
@@ -454,5 +479,7 @@ const getStyle = (feature) => {
       color: `hsl(${hue}, 75%, 50%)`
   }
 }
+
+
 
 getData()

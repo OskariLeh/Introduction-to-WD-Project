@@ -7,6 +7,11 @@ h2 {
     text-align: center;
 }
 
+h3 {
+    margin-top: 20px;
+    text-align: center;
+}
+
 .map-menu {
     align-items: center;
     display: flex;
@@ -30,6 +35,7 @@ h2 {
 .rad-button {
     margin-bottom: 10px;
 }
+
 
 #municipality-form {
     margin-left: 40%;
