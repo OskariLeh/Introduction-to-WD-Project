@@ -36,8 +36,25 @@ h3 {
     margin-bottom: 10px;
 }
 
+button {
+    margin: 2px;
+}
+
 
 #municipality-form {
     margin-left: 40%;
     margin-top: 50px;
+}
+
+#map-buttons {
+    padding-left: 10px;
+}
+
+@media (max-width: 1100px) {
+    .map-menu {
+        flex-direction: column;
+    }
+    .decile-buttons{
+        flex-direction: row;
+    }
 }
