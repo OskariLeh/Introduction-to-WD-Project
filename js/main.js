@@ -376,19 +376,18 @@ updateButton.addEventListener("click", () => {
   
 })
 
+// Uses Leaflet.image plugin to doownload an image of the map
 downloadButton.addEventListener("click", () => {
   leafletImage(map, function(err, canvas) {
-    // now you have canvas
-    // example thing to do with that canvas:
-    let img = document.createElement('a');
+    let a = document.createElement('a');
     let dimensions = map.getSize();
-    img.x = dimensions.x
-    img.y = dimensions
+    a.x = dimensions.x
+    a.y = dimensions
 
-    img.href= canvas.toDataURL();
-    img.download = "map.png"
-    img.click()
-    img.remove()
+    a.href= canvas.toDataURL();
+    a.download = "map.png"
+    a.click()
+    a.remove()
   })
 })
 

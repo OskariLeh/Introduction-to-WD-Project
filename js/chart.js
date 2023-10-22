@@ -152,6 +152,7 @@ submitButton.addEventListener("click", async () => {
     makeChart()
 })
 
+// Functionality for clicking a municipality on a map
 const layerClicked = async (e) => {
   let areaCodes = await getAreaCodes()
   let areaCode = ""
@@ -168,6 +169,7 @@ const layerClicked = async (e) => {
   makeChart()
 }
 
+// Gets the income decile data for the chart
 const getChartData = async () => {
     const url = "https://pxdata.stat.fi:443/PxWeb/api/v1/en/StatFin/tjt/statfin_tjt_pxt_12hh.px"
 
@@ -186,6 +188,7 @@ const getChartData = async () => {
     return data
 }
 
+// gets population data
 const getPopulationData = async () => {
   const url = "https://statfin.stat.fi:443/PxWeb/api/v1/en/StatFin/synt/statfin_synt_pxt_12dy.px"
 
@@ -265,6 +268,7 @@ const makeChart = async () => {
     }   
 }
 
+// Gets areacodes and returns the used for the changing of municipality in post query
 const getAreaCodes= async () => {
     const url = "https://statfin.stat.fi/PxWeb/api/v1/en/StatFin/synt/statfin_synt_pxt_12dy.px"
 
