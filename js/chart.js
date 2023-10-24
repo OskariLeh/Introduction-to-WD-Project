@@ -4,6 +4,8 @@ const populationCheckbox = document.getElementById("include-population")
 populationCheckbox.checked = false
 textArea.value = "Whole country"
 
+
+//Kommentti
 let chartQuery = {
     "query": [
       {
